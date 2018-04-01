@@ -1,2 +1,8 @@
 # bastemp
-Códigos para front end y luego vendrán más cambios.
+Códigos web para web developers front-end
+
+## Versión
+1.1.2
+
+## Sitio web
+https://bastemp.com
