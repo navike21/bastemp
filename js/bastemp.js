@@ -238,7 +238,8 @@ $(document).ready(function() {
     }
 
     //Cargamos la función de cerrar el modal
-    close_modal();
+    $(".overflow").removeClass('fadeOutoverflow fadeInoverflow');
+    $(".modal").removeClass('fadeOutmodal fadeInmodal');
     //Cargamos para todos los tag HTML la opcion de activar el modal con
     // data-iddestinomodal="#iddestino"     = El id del modal a mostrarse.s
 
