@@ -237,11 +237,11 @@ $(document).ready(function() {
         max_min_width(tagsHTML[i]);
     }
 
-    //Cargamos la función de cerrar el modal
-    $(".overflow").removeClass('fadeOutoverflow fadeInoverflow');
-    $(".modal").removeClass('fadeOutmodal fadeInmodal');
+    //Cargamos Los estilos para no mostrar un Modal si no es requerido
+    //$(".overflow").removeClass('fadeOutoverflow fadeInoverflow');
+    //$(".modal").removeClass('fadeOutmodal fadeInmodal');
     //Cargamos para todos los tag HTML la opcion de activar el modal con
-    // data-iddestinomodal="#iddestino"     = El id del modal a mostrarse.s
+    // data-iddestinomodal="#iddestino"     = El id del modal a mostrarse.
 
     $(".modal_on").on('click',function(event) {
         event.preventDefault();
