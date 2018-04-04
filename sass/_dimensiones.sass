@@ -1,0 +1,9 @@
+.full_min_h
+  min-height: 100vh
+.full_h
+  height: 100vh
+//Bucle para w_1 al w_100 
+$class-slug: w !default
+@for $i from 0 through 100
+  .#{$class-slug}_#{$i}
+    width: 0% + $i
