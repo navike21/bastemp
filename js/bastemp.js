@@ -2,7 +2,7 @@
 * max_min_width() Funcion que determina el ancho máximo y mínimo de una etiqueta*
 ==================================================================================*/
 var max_min_width = function( tag ){
-    $(tag). each(function(index, el) {
+    $(tag).each(function(index, el) {
         var maxwidth = $(this).data('maxwidth');
         var minwidth = $(this).data('minwidth');
 
