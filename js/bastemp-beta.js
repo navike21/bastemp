@@ -86,4 +86,4 @@ window.addEventListener("load", function() {
     for (let t = 0; t < tags.length; t++) {
         max_min_width(tags[t]);
     }
-} );
+});
