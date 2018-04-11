@@ -2,14 +2,14 @@
 ** restriccion_campos()
 ** Función que escanea el "data-restriccion" de un input para limitar los datos que se le ingresen
 */
-function restriccion_campos(e) {
+function restriccion_campos( e ) {
     var key = e.keyCode || e.which;
     var tecla = String.fromCharCode(key).toLowerCase();
     var restriccion = this.dataset.restriccion;
     var letras = null;
 
-    if (restriccion != undefined) {
-        switch (restriccion) {
+    if ( restriccion != undefined ) {
+        switch ( restriccion ) {
             case "numerico":
                 letras = "1234567890";
                 break
@@ -21,12 +21,12 @@ function restriccion_campos(e) {
         especiales = [8, 37, 39, 46];
     
         tecla_especial = false
-        for(var i in especiales){
-            if(key == especiales[i])
+        for( var i in especiales ){
+            if( key == especiales[i] )
                 tecla_especial = true
                 break
         }
-        if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        if( letras.indexOf( tecla ) == -1 && !tecla_especial )
             e.preventDefault();
     }
 }
@@ -42,8 +42,8 @@ function max_min_width( tag ){
     var maxw = null; /*Buzón de valor del data-maxwidth*/
     var minw = null; /*Buzón de valor del data-minwidth*/
 
-    for (let i = 0; i < elementTag.length; i++) {
-        // const element = array[i];
+    for ( let i = 0; i < elementTag.length; i++ ) {
+        /*Leemos el valor de los data-maxwidth & data-minwidth*/
         maxw = elementTag[i].dataset.maxwidth;
         minw = elementTag[i].dataset.minwidth;
 
@@ -57,11 +57,39 @@ function max_min_width( tag ){
 }
 
 /*
+** openModal()
+** Función que permite abrir una ventana flotante o popup en el sitio web. 
+*/
+
+function openModal( idtag ){
+    var destinoModal = document.getElementById( idtag );
+    
+    if ( idtag != undefined ) {
+
+        /*Creamos el Overflow*/
+        var overflow = document.createElement("div");
+            overflow.setAttribute("class", "overflow fadeInoverflow");
+        
+        /*Añadimos el div del overflow al body*/
+        document.body.appendChild( overflow );
+    
+        destinoModal.className = "fadeInmodal";
+        
+    } else {
+        console.log("ERROR: Se debe de definir el parámetro idtag usando data-idmodal ")
+    }
+
+}
+
+
+/*
 ** EL READY DE LAS FUNCIONES DE JAVASCRIPT
 */
 
 /* Agrego el evento "onload" a la página para agregar los gestores de eventos cuando la página se haya generado */
 window.addEventListener("load", function() {
+
+    // console.log("GRACIAS por utilizar bastemp, para más información visite https://bastemp.com");
 
     /* 
     ** Función restriccion_campos()
