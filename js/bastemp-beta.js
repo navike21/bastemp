@@ -63,24 +63,31 @@ function max_min_width( tag ){
 
 function openModal( idtag ){
     var destinoModal = document.getElementById( idtag );
-    
     if ( idtag != undefined ) {
-
         /*Creamos el Overflow*/
         var overflow = document.createElement("div");
             overflow.setAttribute("class", "overflow fadeInoverflow");
-        
         /*Añadimos el div del overflow al body*/
         document.body.appendChild( overflow );
-    
         destinoModal.className = "fadeInmodal";
         
     } else {
         console.log("ERROR: Se debe de definir el parámetro idtag usando data-idmodal ")
     }
-
 }
 
+function closeModal(){
+    var overflow = getElementsByClassName( overflow );
+    var modal    = getElementsByClassName( modal );
+
+    overflow.className = "fadeOutoverflow";
+    modal.className = "fadeOutmodal";
+
+    setTimeout(() => {
+        overflow.classList.remove("fadeOutoverflow fadeInoverflow");
+        modal.classList.remove("fadeOutmodal fadeInmodal");
+    }, 1000);
+}
 
 /*
 ** EL READY DE LAS FUNCIONES DE JAVASCRIPT
