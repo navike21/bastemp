@@ -35,7 +35,6 @@ function restriccion_campos( e ) {
 ** max_min_width()
 ** Función que escanea el "data-maxwidth" o "data-minwidth" de un tag para poder establecer un ancho máximo o mínimo en píxeles 
 */
-
 function max_min_width( tag ){
     var elementTag = document.getElementsByTagName( tag );
     // console.log(elementTag.length);
@@ -57,25 +56,47 @@ function max_min_width( tag ){
 }
 
 /*
+** scanModal()
+** Función que permite añadir los estilos necesarios para que pueda funcionar un modal a los ids teniendo la pseudo etiqueta data-idmodal. 
+*/
+function scanModal( tag ){
+    if( tag != undefined ){
+        var selectTag = document.getElementsByTagName( tag );
+
+        for (let i = 0; i < selectTag.length; i++) {
+            var unictag = selectTag[i];
+            var idmodal = unictag.dataset.idmodal;
+            if (idmodal != undefined) {
+                var destinoModal = document.getElementById( idmodal );
+                    destinoModal.className = "modal w_100 full_min_h section_middle_center";
+            }
+        }
+    }
+}
+/*
 ** openModal()
 ** Función que permite abrir una ventana flotante o popup en el sitio web. 
 */
-
 function openModal( idtag ){
     var destinoModal = document.getElementById( idtag );
     if ( idtag != undefined ) {
+        // console.log("Entramos");
         /*Creamos el Overflow*/
         var overflow = document.createElement("div");
             overflow.setAttribute("class", "overflow fadeInoverflow");
-        /*Añadimos el div del overflow al body*/
+
         document.body.appendChild( overflow );
-        destinoModal.className = "fadeInmodal";
+        destinoModal.classList.add("fadeInmodal"); /*Añadimos la clase fadeInmodal*/
         
     } else {
         console.log("ERROR: Se debe de definir el parámetro idtag usando data-idmodal ")
     }
 }
 
+/*
+** closeModal()
+** Función que permite cerrar una ventana flotante o popup en el sitio web. 
+*/
 function closeModal(){
     var overflow = getElementsByClassName( overflow );
     var modal    = getElementsByClassName( modal );
@@ -88,6 +109,8 @@ function closeModal(){
         modal.classList.remove("fadeOutmodal fadeInmodal");
     }, 1000);
 }
+
+
 
 /*
 ** EL READY DE LAS FUNCIONES DE JAVASCRIPT
@@ -120,5 +143,22 @@ window.addEventListener("load", function() {
 
     for (let t = 0; t < tags.length; t++) {
         max_min_width(tags[t]);
+        scanModal( tags[t] );
+    }
+
+    /* 
+    ** Acciones para las funciones de 
+    ** openModal()
+    ++ closeModal()
+    */
+    var modal_on = document.getElementsByClassName('modal_on');
+    for(var i = 0; i < modal_on.length; i++) {
+        var anchor = modal_on[i];
+        anchor.onclick = function() {
+            // alert("e");
+            var idmodalto = anchor.dataset.idmodal;
+            console.log(idmodalto);
+            openModal( idmodalto );
+        }
     }
 });
