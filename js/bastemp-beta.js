@@ -98,16 +98,19 @@ function openModal( idtag ){
 ** Función que permite cerrar una ventana flotante o popup en el sitio web. 
 */
 function closeModal(){
-    var overflow = getElementsByClassName( overflow );
-    var modal    = getElementsByClassName( modal );
+    var overflow = document.querySelector( ".overflow" );
+    var modal    = document.querySelector( ".modal" );
 
-    overflow.className = "fadeOutoverflow";
-    modal.className = "fadeOutmodal";
+    overflow.classList.add("fadeOutoverflow");
+    modal.classList.add("fadeOutmodal");
 
     setTimeout(() => {
-        overflow.classList.remove("fadeOutoverflow fadeInoverflow");
-        modal.classList.remove("fadeOutmodal fadeInmodal");
-    }, 1000);
+        overflow.classList.remove("fadeOutoverflow");
+        overflow.classList.remove("fadeInoverflow");
+        modal.classList.remove("fadeOutmodal");
+        modal.classList.remove("fadeInmodal");
+        overflow.parentNode.removeChild( overflow );
+    }, 450);
 }
 
 
@@ -160,5 +163,12 @@ window.addEventListener("load", function() {
             console.log(idmodalto);
             openModal( idmodalto );
         }
+    }
+});
+
+/*Cerrar el modal presionando ESC*/
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' || event.keyCode === 27) {
+        closeModal();
     }
 });
