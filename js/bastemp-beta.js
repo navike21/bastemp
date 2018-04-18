@@ -113,6 +113,14 @@ function closeModal(){
     }, 450);
 }
 
+/*
+** validaEmail()
+** Función que permite validar el email correctamente escrito de una caja de texto. 
+*/
+function validaEmail( contentemail ) {
+    
+}
+
 
 
 /*
@@ -154,15 +162,22 @@ window.addEventListener("load", function() {
     ** openModal()
     ++ closeModal()
     */
-    var modal_on = document.getElementsByClassName('modal_on');
-    for(var i = 0; i < modal_on.length; i++) {
+    var modal_on = document.getElementsByClassName( 'modal_on' );
+    for( var i = 0; i < modal_on.length; i++ ) {
         var anchor = modal_on[i];
         anchor.onclick = function() {
-            // alert("e");
             var idmodalto = anchor.dataset.idmodal;
-            console.log(idmodalto);
             openModal( idmodalto );
         }
+    }
+
+    var modal_off = document.getElementsByClassName( 'modal_off' );
+    for (let c = 0; c < modal_off.length; c++) {
+        var anchor_close = modal_off[c];
+        anchor_close.onclick = function(){
+            closeModal();
+        }
+        
     }
 });
 
