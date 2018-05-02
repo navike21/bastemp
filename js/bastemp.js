@@ -153,7 +153,7 @@ var formulario = function(){
 
         setTimeout(() => {
             $(".required").removeClass("requerido");
-            $(".email").removeClass('requerido');
+            $(".email").removeClass("requerido");
         }, 1200);
 
         if (valor == 0) {

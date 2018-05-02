@@ -80,15 +80,13 @@ function scanModal( tag ){
 function openModal( idtag ){
     var destinoModal = document.getElementById( idtag );
     if ( idtag != undefined ) {
-        // console.log("Entramos");
         /*Creamos el Overflow*/
         var overflow = document.createElement("div");
             overflow.setAttribute("class", "overflow fadeInoverflow");
-
         document.body.appendChild( overflow );
-        destinoModal.classList.add("fadeInmodal"); /*Añadimos la clase fadeInmodal*/
-        
-    } else {
+        destinoModal.classList.add("fadeInmodal"); /*Añadimos la clase fadeInmodal*/  
+    } 
+    else {
         console.log("ERROR: Se debe de definir el parámetro idtag usando data-idmodal ")
     }
 }
@@ -117,9 +115,25 @@ function closeModal(){
 ** validaEmail()
 ** Función que permite validar el email correctamente escrito de una caja de texto. 
 */
-function validaEmail( contentemail ) {
+function validaEmail(contentemail) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(contentemail);
+}
+
+/*
+** validaSimilitud()
+** Función que permite validar un contenido de un campo de texto que sea igual al otro campo de texto por su id, indexado por un data-similar 
+*/
+function validaSimilitud(id, contenidoB) {
+    var cotenidoA = document.getElementById(id).value;
+
+    if (cotenidoA == contenidoB )
+        return true
+    else
+        return false
     
 }
+
 
 
 
