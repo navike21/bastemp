@@ -172,13 +172,16 @@ var ancla = function(){
         event.preventDefault();
         var href = $(this).attr('href');
         var bleed = $(this).data("ancla_bleed"); // Espacio en pixeles al top de la pantalla
+        var bleed_final = $(href).offset().top + parseInt(bleed);
         if (href != undefined) {
             console.log("ERROR: Debe indicar el parámetro href en el tag <a>");
         }
+
+
         if (bleed != undefined) {
             $('html, body').animate({
-                scrollTop:bleed
-            }, 2000);
+                scrollTop:bleed_final
+            }, 1000);
             return false;
         }
         else{
