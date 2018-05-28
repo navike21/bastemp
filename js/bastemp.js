@@ -172,18 +172,17 @@ var ancla = function(){
         event.preventDefault();
         var href = $(this).attr('href');
         var bleed = $(this).data("ancla_bleed"); // Espacio en pixeles al top de la pantalla
-
-        // var bleed_final = $(href).offset().top + parseInt(bleed);
+        var bleed_final = $(href).offset().top + parseInt(bleed);
 
         if (href != undefined) {
             console.log("ERROR: Debe indicar el parámetro href en el tag <a>");
         }
 
-        // console.log(bleed_final + "/" + $(href).offset().top);
+        console.log(bleed_final + "/" + $(href).offset().top);
 
         if (bleed != undefined) {
             $('html, body').animate({
-                scrollTop:bleed
+                scrollTop:bleed_final
             }, 1000);
             return false;
         }
