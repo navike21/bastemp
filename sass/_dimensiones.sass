@@ -1,26 +1,18 @@
-.full_min_h
-  min-height: 100vh
-.full_h
-  height: 100vh
+@media all and (min-width: 1px)
+  .full_min_h
+    min-height: 100vh
 
-// Espaciado Tiny - Minúsculo
-.spaceInAll_tiny
-  padding: .3vw
-.spaceInHorizontal_tiny
-  padding: 0 .3vw
-.spaceInVertical_tiny
-  padding: 0 .3vw
+  .full_h
+    height: 100vh
 
-// Espaciado Tiny - Minúsculo
-.spaceInAll_small
-  padding: .5vw
-.spaceInHorizontal_small
-  padding: 0 .5vw
-.spaceInVertical_small
-  padding: 0 .5vw
+  //Bucle para w_1 al w_100
+  $class-slug: w !default
+  @for $i from 0 through 100
+    .#{$class-slug}_#{$i}
+      width: 0% + $i
 
-//Bucle para w_1 al w_100 
-$class-slug: w !default
-@for $i from 0 through 100
-  .#{$class-slug}_#{$i}
-    width: 0% + $i
+@media all and (min-width: 1025px)
+  $class-slug: w_desktop !default
+  @for $i from 0 through 100
+    .#{$class-slug}_#{$i}
+      width: 0% + $i

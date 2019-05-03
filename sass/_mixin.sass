@@ -1,7 +1,4 @@
-=border-radius($numero)
-  -webkit-border-radius: $numero
-  -moz-border-radius: $numero
-  -ms-border-radius: $numero
+@mixin border-radius($numero)
   border-radius: $numero
 
 @mixin placeholder-color($color, $style)
@@ -18,12 +15,6 @@
     color: $color
     font-style: $style
 
-@mixin transicion($time)
-  -moz-transition: all ease-in-out $time
-  -ms-transition: all ease-in-out $time
-  -o-transition: all ease-in-out $time
-  -webkit-transition: all ease-in-out $time
-  transition: all ease-in-out $time
-
-@mixin botones()
+@mixin transition()
+  transition: all ease-in-out $seconds
 
