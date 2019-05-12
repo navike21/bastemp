@@ -1,98 +1,139 @@
+// =========================================================
+// == Reference link: https://the-echoplex.net/flexyboxes/
+// == Author mixin: navike21
+// == Detail code: "code mixin for sass"
+// =========================================================
+
 @mixin section_top_left  
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-start  
-  align-content: flex-start  
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-content: flex-start
   align-items: flex-start
 
 @mixin section_top_center
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: center  
-  align-content: flex-start  
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: flex-start
   align-items: flex-start
 
 @mixin section_top_right
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-end  
-  align-content: flex-start  
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-end
+  align-content: flex-start
   align-items: flex-start
 
 @mixin section_top_justify
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: space-between  
-  align-content: flex-start  
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-content: flex-start
   align-items: flex-start
 
 @mixin section_middle_left
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-start 
-  align-content: center  
-  align-items: center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-content: center
+  align-items: flex-start
 
 @mixin section_middle_center
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: center  
-  align-content: center  
-  align-items: center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: center
+  align-items: flex-start
 
 @mixin section_middle_right  
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-end  
-  align-content: center  
-  align-items: center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-end
+  align-content: center
+  align-items: flex-start
 
 @mixin section_middle_justify  
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: space-between  
-  align-content: center  
-  align-items: center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-content: center
+  align-items: flex-start
 
 @mixin section_bottom_left
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-start  
-  align-content: flex-end  
-  align-items: flex-end
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-content: flex-end
+  align-items: flex-start
 
 @mixin section_bottom_center
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: center  
-  align-content: flex-end  
-  align-items: flex-end
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: flex-end
+  align-items: flex-start
 
 @mixin section_bottom_right  
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: flex-end  
-  align-content: flex-end  
-  align-items: flex-end
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-end
+  align-content: flex-end
+  align-items: flex-start
 
 @mixin section_bottom_justify  
-  display: flex  
-  flex-direction: row  
-  flex-wrap: wrap  
-  justify-content: space-between  
-  align-content: flex-end  
-  align-items: flex-end
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-content: flex-end
+  align-items: flex-start
+
+@mixin section_all_left
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-content: stretch
+  align-items: stretch
+
+@mixin section_all_center
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: stretch
+  align-items: stretch
+
+@mixin section_all_right
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: flex-end
+  align-content: stretch
+  align-items: stretch
+
+@mixin section_all_justify
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-content: stretch
+  align-items: stretch
+
+@mixin section_reverse
+  flex-direction: row-reverse
 
 @mixin textAlignCenter
   text-align: center
@@ -105,3 +146,70 @@
 
 @mixin textAlignJustify
   text-align: justify
+
+// ================================ //
+// == Add generic class of mixin == //
+// ================================ //
+
+.section_top_left
+  @include section_top_left
+
+.section_top_center
+  @include section_top_center
+
+.section_top_right
+  @include section_top_right
+
+.section_top_justify
+  @include section_top_justify
+
+.section_middle_left
+  @include section_middle_left
+
+.section_middle_center
+  @include section_middle_center
+
+.section_middle_right
+  @include section_middle_right
+
+.section_middle_justify
+  @include section_middle_justify
+
+.section_bottom_left
+  @include section_bottom_left
+
+.section_bottom_center
+  @include section_bottom_center
+
+.section_bottom_right
+  @include section_bottom_right
+
+.section_bottom_justify
+  @include section_bottom_justify
+
+.section_all_left
+  @include section_all_left
+
+.section_all_center
+  @include section_all_center
+
+.section_all_right
+  @include section_all_right
+
+.section_all_justify
+  @include section_all_justify
+
+.section_reverse
+  @include section_reverse
+
+.textAlignCenter
+  @include textAlignCenter
+
+.textAlignLeft
+  @include textAlignLeft
+
+.textAlignRight
+  @include textAlignRight
+
+.textAlignJustify
+  @include textAlignJustify

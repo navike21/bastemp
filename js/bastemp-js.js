@@ -3,12 +3,12 @@
 ** Función que escanea el "data-restriccion" de un input para limitar los datos que se le ingresen
 */
 function restriccion_campos( e ) {
-  var key = e.keyCode || e.which;
-  var tecla = String.fromCharCode(key).toLowerCase();
-  var restriccion = this.dataset.restriccion;
-  var letras = null;
-  var especiales = null;
-  var tecla_especial = null;
+  let key = e.keyCode || e.which;
+  let tecla = String.fromCharCode(key).toLowerCase();
+  let restriccion = this.dataset.restriccion;
+  let letras = null;
+  let especiales = null;
+  let tecla_especial = null;
 
   if ( restriccion != undefined ) {
     switch ( restriccion ) {
@@ -23,7 +23,7 @@ function restriccion_campos( e ) {
     especiales = [8, 37, 39, 46];
 
     tecla_especial = false
-    for( var i in especiales ){
+    for( let i in especiales ){
       if( key == especiales[i] )
         tecla_especial = true
         break
@@ -38,10 +38,10 @@ function restriccion_campos( e ) {
 ** Función que escanea el "data-maxwidth" o "data-minwidth" de un tag para poder establecer un ancho máximo o mínimo en píxeles 
 */
 function max_min_width( tag ){
-  var elementTag = document.getElementsByTagName( tag );
+  let elementTag = document.getElementsByTagName( tag );
   // console.log(elementTag.length);
-  var maxw = null; /*Buzón de valor del data-maxwidth*/
-  var minw = null; /*Buzón de valor del data-minwidth*/
+  let maxw = null; /*Buzón de valor del data-maxwidth*/
+  let minw = null; /*Buzón de valor del data-minwidth*/
 
   for ( let i = 0; i < elementTag.length; i++ ) {
     /*Leemos el valor de los data-maxwidth & data-minwidth*/
@@ -63,13 +63,13 @@ function max_min_width( tag ){
 */
 function scanModal( tag ){
   if( tag != undefined ){
-    var selectTag = document.getElementsByTagName( tag );
+    let selectTag = document.getElementsByTagName( tag );
 
     for (let i = 0; i < selectTag.length; i++) {
-      var unictag = selectTag[i];
-      var idmodal = unictag.dataset.idmodal;
+      let unictag = selectTag[i];
+      let idmodal = unictag.dataset.idmodal;
       if (idmodal != undefined) {
-        var destinoModal = document.getElementById( idmodal );
+        let destinoModal = document.getElementById( idmodal );
           destinoModal.className = "modal w_100 full_min_h section_middle_center";
       }
     }
@@ -80,10 +80,10 @@ function scanModal( tag ){
 ** Función que permite abrir una ventana flotante o popup en el sitio web. 
 */
 function openModal( idtag ){
-  var destinoModal = document.getElementById( idtag );
+  let destinoModal = document.getElementById( idtag );
   if ( idtag != undefined ) {
     /*Creamos el Overflow*/
-    var overflow = document.createElement("div");
+    let overflow = document.createElement("div");
     overflow.setAttribute("class", "overflow fadeInoverflow");
     document.body.appendChild( overflow );
     destinoModal.classList.add("fadeInmodal"); /*Añadimos la clase fadeInmodal*/  
@@ -98,8 +98,8 @@ function openModal( idtag ){
 ** Función que permite cerrar una ventana flotante o popup en el sitio web. 
 */
 function closeModal(){
-  var overflow = document.querySelector( ".overflow" );
-  var modal    = document.querySelector( ".modal" );
+  let overflow = document.querySelector( ".overflow" );
+  let modal    = document.querySelector( ".modal" );
 
   overflow.classList.add("fadeOutoverflow");
   modal.classList.add("fadeOutmodal");
@@ -118,7 +118,7 @@ function closeModal(){
 ** Función que permite validar el email correctamente escrito de una caja de texto. 
 */
 function validaEmail(contentemail) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(contentemail);
 }
 
@@ -127,7 +127,7 @@ function validaEmail(contentemail) {
 ** Función que permite validar un contenido de un campo de texto que sea igual al otro campo de texto por su id, indexado por un data-similar 
 */
 function validaSimilitud(id, contenidoB) {
-  var cotenidoA = document.getElementById(id).value;
+  let cotenidoA = document.getElementById(id).value;
 
   if (cotenidoA == contenidoB)
     return true
@@ -148,9 +148,9 @@ window.addEventListener("load", function() {
   ** Función restriccion_campos()
   ** Agrego un gestor de eventos "keypress" para todos los inputs
   */
-  var numericotxt = document.querySelectorAll("input");
+  let numericotxt = document.querySelectorAll("input");
   /*Recorreomos todos los inputs y le agregamos las características de restricción de campos*/
-  for (var i = 0; i < numericotxt.length ; i++) {
+  for (let i = 0; i < numericotxt.length ; i++) {
     numericotxt[i].addEventListener(
       "keypress",
       restriccion_campos,
@@ -162,7 +162,7 @@ window.addEventListener("load", function() {
   ** Función max_min_width()
   ** Empiezo a cotegar con los elementos tag almacenados en un array
   */
-  var tags = ["a", "article", "aside", "button", "div", "figcapion", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "img", "input", "label", "li", "legend", "nav", "ol", "p", "section", "select", "span", "strong", "textarea", "ul"];
+  let tags = ["a", "article", "aside", "button", "div", "figcapion", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "img", "input", "label", "li", "legend", "nav", "ol", "p", "section", "select", "span", "strong", "textarea", "ul"];
 
   for (let t = 0; t < tags.length; t++) {
     max_min_width(tags[t]);
@@ -174,18 +174,18 @@ window.addEventListener("load", function() {
   ** openModal()
   ++ closeModal()
   */
-  var modal_on = document.getElementsByClassName( 'modal_on' );
-  for( var i = 0; i < modal_on.length; i++ ) {
-    var anchor = modal_on[i];
+  let modal_on = document.getElementsByClassName( 'modal_on' );
+  for( let i = 0; i < modal_on.length; i++ ) {
+    let anchor = modal_on[i];
     anchor.onclick = function() {
-      var idmodalto = anchor.dataset.idmodal;
+      let idmodalto = anchor.dataset.idmodal;
       openModal( idmodalto );
     }
   }
 
-  var modal_off = document.getElementsByClassName( 'modal_off' );
+  let modal_off = document.getElementsByClassName( 'modal_off' );
   for (let c = 0; c < modal_off.length; c++) {
-    var anchor_close = modal_off[c];
+    let anchor_close = modal_off[c];
     anchor_close.onclick = function(){
       closeModal();
     }

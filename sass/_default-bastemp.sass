@@ -1,8 +1,8 @@
 a,
 a:hover
-	@include transition
-	text-decoration: none
 	cursor: pointer
+	text-decoration: none
+	@include transition
 
 input[type="text"],
 input[type="password"],
@@ -13,17 +13,18 @@ input[type="tel"],
 select,
 textarea,
 button
-	outline: 0
-	font-family: $fuente_secundaria
 	border: 1px solid $crema_color
+	font-family: $fuente_secundaria
+	margin: 5px 0px
+	outline: 0
 	padding: 7px 8px
 	@include placeholder-color(#dddddd, italic)
-	margin: 5px 0px
+	@include transition
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5
-		margin: 0
-		padding: 0
+h1,
+h2,
+h3,
+h4,
+h5
+	margin: 0
+	padding: 0
